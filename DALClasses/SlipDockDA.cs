@@ -130,6 +130,7 @@ namespace DALClasses
         }
 
 
+
         // a method to get a list of docks from the database:
         public static List<Dock> GetDocks()
         {
@@ -183,6 +184,65 @@ namespace DALClasses
             }
             return DockList;
         }
+
+
+
+        // a method to get a list of available slips for a selected docks from the database:
+        public static List<Slip> GetSlips(int Id)
+        {
+            // make an empty list of slip-dock
+            List<Slip> SlipsList = new List<Slip>();
+
+            // make an empty slip-dock object
+            Slip SL = new Slip();
+
+            // get connected to the database
+            SqlConnection con = InlandMarinaScriptDB.GetConnection();
+
+            // creating the proper sql query to extract data from MS SQL server
+            string Query = "SELECT ID, Width, Length, DockID FROM Slip WHERE DockID = @DockID";
+
+            // creating the proper command to run the query
+            SqlCommand comm = new SqlCommand(Query, con);
+
+            comm.Parameters.AddWithValue("@DockID", Id);
+
+            // try to run the command
+            try
+            {
+                // opening the connection
+                con.Open();
+
+                // creating a sql data reader and run it to read the data from the database
+                SqlDataReader dr = comm.ExecuteReader();
+
+                // read line by line as much as there is something to read
+                while (dr.Read())
+                {
+                    // for each line of the returned rows of data from database, 
+                    //assign the column values to the properties of a new slip-dock object
+                    SL = new Slip();
+                    SL.SlipId = (int)dr["ID"];
+                    SL.Width = (int)dr["Width"];
+                    SL.Length = (int)dr["Length"];
+                    SL.DockId = (int)dr["DockID"];
+
+                    // adding the new object to the list of objects
+                    SlipsList.Add(SL);
+                }
+                dr.Close(); // closing the data reader
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return SlipsList;
+        }
+
 
 
     }

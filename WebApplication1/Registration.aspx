@@ -24,6 +24,37 @@
         .auto-style9 {
             width: 350px;
         }
+        .auto-style10 {
+            width: 353px;
+            height: 37px;
+        }
+        .auto-style11 {
+            height: 37px;
+        }
+        .auto-style12 {
+            width: 353px;
+            height: 34px;
+        }
+        .auto-style13 {
+            height: 34px;
+        }
+        .auto-style14 {
+            width: 353px;
+            height: 35px;
+        }
+        .auto-style15 {
+            height: 35px;
+        }
+        .auto-style16 {
+            width: 353px;
+            height: 33px;
+        }
+        .auto-style17 {
+            height: 33px;
+        }
+        .auto-style18 {
+            height: 50px;
+        }
     </style>
 </asp:Content>
 
@@ -45,7 +76,7 @@
             <td class="auto-style8" style="text-indent: 250px; text-align: left;">First Name:</td>
             <td class="auto-style7" style="text-align: left">
                 <asp:TextBox ID="txtFName" runat="server" Width="165px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFName" ErrorMessage="First name is required" Font-Names="Arial" Font-Size="Small" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFName" ErrorMessage="First name is required" Font-Names="Arial" Font-Size="Small" ForeColor="#FF3300" ValidationGroup="1">*</asp:RequiredFieldValidator>
             </td>
         </tr>
 
@@ -53,18 +84,18 @@
             <td class="auto-style9" style="text-indent: 250px; text-align: left;">Last Name:</td>
             <td class="auto-style5" style="text-align: left">
                 <asp:TextBox ID="txtLName" runat="server" Width="165px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLName" ErrorMessage="Last name is required" Font-Names="Arial" Font-Size="Small" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLName" ErrorMessage="Last name is required" Font-Names="Arial" Font-Size="Small" ForeColor="#FF3300" ValidationGroup="1">*</asp:RequiredFieldValidator>
             </td>
         </tr>
             
         <tr>
             <td colspan="2" style="height:50px; text-align: justify"/>
                 <asp:Label ID="lblLogErr" runat="server" BackColor="White" Font-Names="Arial" Font-Size="Smaller" ForeColor="Red"></asp:Label>
-                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" Width="231px" BackColor="White" Font-Names="Arial" Font-Size="Small" />
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" Width="231px" BackColor="White" Font-Names="Arial" Font-Size="Small" ValidationGroup="1"/>
         </tr>
          <tr>
             <td colspan="2" class="auto-style3" style="text-indent: 150px; font-size: x-large; font-weight: bold; ">
-                <asp:Button ID="btnLogin" runat="server" Height="28px" Text="Login" Width="72px" OnClick="btnLogin_Click" />
+                <asp:Button ID="btnLogin" runat="server" Height="28px" Text="Login" Width="72px" OnClick="btnLogin_Click" ValidationGroup="1"/>
                 <br />                
             </td>
         </tr>
@@ -95,41 +126,46 @@
         </tr>
 
         <tr>
-            <td class="auto-style3" style="text-indent: 250px; text-align: justify;">First Name:</td>
-            <td style="text-align: left">
+            <td class="auto-style10" style="text-indent: 250px; text-align: justify;">First Name:</td>
+            <td style="text-align: left" class="auto-style11">
                 <asp:TextBox ID="txtFirstName" runat="server" Width="165px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtFirstName" ErrorMessage="First name is required" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>
 
         <tr>
-            <td class="auto-style3" style="text-indent: 250px; text-align: justify;">Last Name:</td>
-            <td style="text-align: left">
+            <td class="auto-style12" style="text-indent: 250px; text-align: justify;">Last Name:</td>
+            <td style="text-align: left" class="auto-style13">
                 <asp:TextBox ID="txtLastName" runat="server" Width="165px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtLastName" ErrorMessage="Last name is required" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>
             
 
         <tr>
-            <td class="auto-style3" style="text-indent: 250px; text-align: justify;">Phone:</td>
-            <td style="text-align: left">
-                <asp:TextBox ID="TextBox1" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style14" style="text-indent: 250px; text-align: justify;">Phone:</td>
+            <td style="text-align: left" class="auto-style15">
+                <asp:TextBox ID="txtPhone" runat="server" Width="165px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPhone" ErrorMessage="Phone number is required" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>
 
         <tr>
-            <td class="auto-style3" style="text-indent: 250px; text-align: justify;">City:</td>
-            <td style="text-align: left">
-                <asp:TextBox ID="TextBox2" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style16" style="text-indent: 250px; text-align: justify;">City:</td>
+            <td style="text-align: left" class="auto-style17">
+                <asp:TextBox ID="txtCity" runat="server" Width="165px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtCity" ErrorMessage="City is required" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>
             
         <tr>
-            <td colspan="2" style="height:50px; text-align: justify"/>
+            <td colspan="2" style="text-align: justify" class="auto-style18"/>
                 <asp:Label ID="lblRegErr" runat="server" BackColor="White" Font-Size="Smaller" ForeColor="Red"></asp:Label>
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" BackColor="White" Font-Names="Arial" Font-Size="Small" ForeColor="#FF3300" Height="73px" ViewStateMode="Enabled" Width="226px" />
         </tr>
          <tr>
             <td colspan="2" class="auto-style3" style="text-indent: 150px; font-size: x-large; font-weight: bold; ">
-                <asp:Button ID="btnRegister" runat="server" Height="28px" Text="Register" Width="72px" OnClick="btnLogin_Click" />
+                <asp:Button ID="btnRegister" runat="server" Height="28px" OnClick="btnRegister_Click1" Text="Register" Width="72px" />
                 <br />
                 <br />
             </td>
